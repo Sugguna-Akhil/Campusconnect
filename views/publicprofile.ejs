@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="/profile.css" rel="stylesheet">
+  <style>
+    #connect-bt {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #connect-bt:hover {
+      background-color: #0056b3;
+    }
+    #connect-bt.connected {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+    #connect { text-align: center; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div id="head">
+    <h1>CampusConnect</h1>
+    <div id="dash">
+      <a href="/MainDashboard"><h3>Dashboard</h3></a>
+      <a href="/browse"><h3>Browse Students</h3></a>
+      <a href="/message"><h3>Messages</h3></a>
+    </div>
+    <div id="search-div">
+      <input type="text" placeholder="Search" id="search">
+    </div>
+    <div id="imgs">
+      <img src="/images/bell.png" id="image1">
+      <a href="/MainDashboard"><img src="/images/profile.png" id="photo"></a>
+    </div>
+  </div>
+
+  <div id="img-prof">
+    <img src="/images/profile.png" id="pp">
+  </div>
+
+  <div id="name"><h1><%= profile.name %></h1></div>
+  <div id="about"><p><%= profile.about %></p></div>
+
+  <div id="connect">
+  <form action="/connect/<%= profile._id %>" method="POST">
+    <% if (isConnected) { %>
+      <button type="submit" id="connect-bt" class="connected" disabled>Connected</button>
+    <% } else { %>
+      <button type="submit" id="connect-bt">Connect</button>
+    <% } %>
+  </form>
+
+  </div>
+
+  <div id="academic">
+    <h1>Academic Information</h1>
+  </div>
+  <div id="academic1"><h4>GPA: <%= profile.gpa %></h4></div>
+  <div id="academic1"><h4>Key Courses: <%= profile.key %></h4></div>
+  <div id="academic1"><h4>Projects: <%= profile.projects %></h4></div>
+
+  <div id="academic">
+    <h1>Skills & Interests</h1>
+  </div>
+  <div id="academic1"><h3><%= profile.skills %></h3></div>
+
+  <div id="academic">
+    <h1>Contact Details</h1>
+  </div>
+  <div id="contact">
+    <div id="mail">
+      <h4>Email: <%= profile.mail %></h4>
+    </div>
+    <div id="mail">
+      <h4>LinkedIn: <%= profile.linkedin %></h4>
+    </div>
+    <div id="mail">
+      <h4>GitHub: <%= profile.github %></h4>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin:40px;">
+    <a href="/MainDashboard"><button id="connect-bt">Back to Dashboard</button></a>
+  </div>
+</body>
+</html>

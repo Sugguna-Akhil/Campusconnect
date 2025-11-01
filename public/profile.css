@@ -1,0 +1,119 @@
+    body{
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #head{
+         display: flex;
+         justify-content: space-evenly;
+         border-bottom: 1px solid black;
+    }
+    #search{
+        border-radius: 20px;
+        height: 30px;
+        width: 300px;
+    }
+    #logo{
+        height: 100px;
+        width: 100px;
+    }
+    #photo{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    #image1{
+        height: 50px;
+        width: 50px;
+        object-fit: contain;
+    }
+
+    #dash{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 30px;
+        padding-top: 12px;
+    }
+
+    #search-div{
+        display: flex;
+        padding-top: 20px;
+    }
+
+    #imgs{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 50px;
+        padding-top: 20px;
+    }
+
+    #img-prof{
+        display: flex;
+        justify-content: center;
+        padding-top: 80px;
+    }
+
+    #pp{
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+    }
+
+    #name{
+        display: flex;
+        justify-content: center;
+    }
+
+    #about{
+        display: flex;
+        justify-content: center;
+    }
+
+    #connect{
+        display: flex;
+        justify-content: center;
+    }
+
+    #connect-bt{
+        background-color: #1313ef;
+        border-radius: 20px;
+        color: white;
+        height: 50px;
+        width: 150px;
+        font-size: 15px;
+    }
+
+    #academic{
+        padding-top: 60px;
+        padding-left: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid black ;
+    }
+
+    #academic1{
+        padding-top: 10px;
+        padding-left: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid black ;
+        color: lightslategray;
+    }
+
+    #contact{
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+    #mail {
+        background-color: lightslategrey;
+        color: white;
+        height: 50px;
+        width: 280px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        gap: 10px;
+    }

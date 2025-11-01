@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="/editprofile.css" rel="stylesheet">
+</head>
+<body>
+  <div id="head">
+    <h1>CampusConnect</h1>
+    <div id="dash">
+      <h3>Dashboard</h3>
+      <h3>Browse Students</h3>
+      <h3>Messages</h3>
+    </div>
+    <div id="search-div">
+      <input type="text" placeholder="Search" id="search">
+    </div>
+    <div id="imgs">
+      <img src="bell.png" id="image1">
+      <img src="profile.png" id="photo">
+    </div>
+  </div>
+
+  <form action="/editprofile/<%= detail._id %>" method="POST" id="profile-form">
+    <div class="form-group">
+      <label>Enter your name</label>
+      <input type="text" name="detail[name]" placeholder="Enter your name" value="<%= detail.name %>" required>
+    </div>
+
+    <div class="form-group">
+      <label>Enter about you</label>
+      <input type="text" name="detail[about]" placeholder="Enter your about" value="<%= detail.about %>" required>
+    </div>
+
+    <div class="form-group">
+      <label>Enter your GPA</label>
+      <input type="number" step="0.01" name="detail[gpa]" placeholder="Enter your GPA" value="<%= detail.gpa %>" required>
+    </div>
+
+    <div class="form-group">
+      <label>Enter your Key Courses</label>
+      <input type="text" name="detail[key]" placeholder="Enter your key courses" value="<%= detail.key %>" required>
+    </div>
+
+    <div class="form-group">
+      <label>Enter your Projects</label>
+      <input type="text" name="detail[projects]" placeholder="Enter your projects" value="<%= detail.projects %>" required>
+    </div>
+
+    <div class="form-group">
+      <label>Enter your Skills and Interests</label>
+      <input type="text" name="detail[skills]" placeholder="Enter your skills and interests" value="<%= detail.skills %>" required>
+    </div>
+
+    <div class="form-group">
+      <label>Enter your Contact Details</label>
+      <input type="text" name="detail[linkedin]" placeholder="Enter your Linkedin username" value="<%= detail.linkedin %>" required>
+      <input type="text" name="detail[github]" placeholder="Enter your Github" value="<%= detail.github %>" required>
+    </div>
+
+    <div class="form-submit">
+      <button type="submit" id="submit-bt">Save</button>
+    </div>
+  </form>
+</body>
+</html>

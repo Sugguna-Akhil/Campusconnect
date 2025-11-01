@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/createevent.css">
+</head>
+<body>
+  <div id="head">
+    <h1 id="title">CampusConnect</h1>
+    <div id="dash">
+      <a href="#"><h3>Dashboard</h3></a>
+      <a href="#"><h3>Browse Students</h3></a>
+      <a href="#"><h3>Jobs</h3></a>
+    </div>
+    <img src="/images/bell.png" id="image1" alt="Notifications">
+  </div>
+
+  <div id="create-title">
+    <h1>Create Event</h1>
+    <h4>Fill in the details below to create your event</h4>
+  </div>
+
+  <form id="event-details" action="/createevent" method="POST" enctype="multipart/form-data">
+    <div>
+      <h3>Event Details</h3>
+    </div>
+
+    <div id="enter1">
+      <h4>Event Title</h4>
+      <input type="text" name="event[name]" placeholder="e.g., Annual Tech Symposium" id="input1" required>
+    </div>
+
+    <div id="dt">
+      <div>
+        <h4>Date</h4>
+        <input type="date" name="event[date]" id="input2" required>
+      </div>
+      <div>
+        <h4>Time</h4>
+        <input type="time" name="event[time]" id="input2" required>
+      </div>
+    </div>
+
+    <div id="enter1">
+      <h4>Location</h4>
+      <input type="text" name="event[location]" placeholder="e.g., Main Auditorium" id="input1" required>
+    </div>
+
+    <div id="enter2">
+      <h4>Description</h4>
+      <textarea name="event[description]" placeholder="Tell us more about your event" id="input3" required></textarea>
+    </div>
+    
+    <button type="submit" id="submit">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 
+        2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 
+        1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 
+        1 .5-.5M1 4v10a1 1 0 0 0 1 
+        1h12a1 1 0 0 0 1-1V4z"/>
+      </svg>
+      Submit Event
+    </button>
+  </form>
+</body>
+</html>

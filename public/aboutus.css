@@ -1,0 +1,98 @@
+#navbar{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    padding-left: 400px;
+}
+
+#head{
+    display: flex;
+    padding-top: 20px;
+    border-bottom: 2px solid black;
+}
+
+#profile{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding-left: 600px;
+}
+
+body{
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+#camp{
+    display: flex;
+    padding-left: 50px;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+#mission{
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    color: white;
+}
+
+#vision {
+    background-color:#0a0a23;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+#vision-text{
+    display: flex;
+    justify-content: end;
+    padding-bottom: 0px;
+}
+
+#dev {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 80px 0;
+    flex-wrap: wrap;
+    background-color: #f8f9fa;
+}
+
+#akhil {
+    background-color: #0a0a23;
+    color: white;
+    width: 250px;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#akhil:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+#akhil img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid white;
+}
+
+#akhil h1 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+#image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}

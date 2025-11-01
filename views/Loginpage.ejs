@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - CampusConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="/login.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">CampusConnect</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="signuppage.html" class="btn-nav">Sign Up</a>
+    </nav>
+  </header>
+  <div class="login-container">
+    <h2>Login to Student Connect</h2>
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required name = "email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required name = "password">
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <% if (typeof err !== 'undefined' && err) { %>
+         <h5>Username or Password is wrong</h5>
+      <% } %>
+    </form>
+    <div class="extra-links">
+      <p><a href="/forgotpassword">Forgot Password?</a></p>
+      <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>

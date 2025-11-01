@@ -1,0 +1,137 @@
+body 
+    {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #333;
+      font-family: "Montserrat", sans-serif;
+    }
+    header 
+    {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+    }
+    header.logo 
+    {
+      font-weight: bold;
+      font-size: 18px;
+      color: #007bff;
+    }
+    nav a 
+    {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+    }
+    nav a:hover 
+    {
+      background-color: white;
+      color: #007bff;
+    }
+    .btn 
+    {
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .btn-primary 
+    {
+      background: #007bff;
+      color: #fff;
+    }
+    .btn-secondary 
+    {
+      border: 1px solid #007bff;
+      color: #007bff;
+    }
+    .hero 
+    {
+      text-align: center;
+      padding: 60px 20px;
+      background: url('your-image.jpg') center/cover no-repeat;
+      color: white;
+    }
+    .hero h1 
+    {
+      font-size: 36px;
+      margin-bottom : 15px;
+    }
+    .hero p 
+    {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .hero .buttons 
+    {
+      margin-top: 20px;
+    }
+    .hero .btn-primary 
+    {
+      margin-right: 10px;
+    }
+
+    .features 
+    {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .features h2 
+    {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .features p 
+    {
+      margin-bottom: 40px;
+      color: #555;
+    }
+    .feature-items {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .feature 
+    {
+      max-width: 250px;
+    }
+    .feature h3 
+    {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+    .feature p 
+    {
+      font-size: 14px;
+      color: #444;
+    }
+    footer 
+    {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #f1f1f1;
+      font-size: 14px;
+      color: #555;
+      flex-wrap: wrap;
+    }
+    footer .links a 
+    {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #333;
+    }
+    footer .links a:hover 
+    {
+      color: #007bff;
+    }

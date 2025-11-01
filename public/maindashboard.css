@@ -1,0 +1,104 @@
+body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      background-color: #f5f6f8;
+      color: #222;
+    }
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      height: 100vh;
+      position: fixed;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    }
+    .profile 
+    {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .profile img 
+    {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .profile h3 { font-size: 16px; margin: 0; }
+    .profile p { font-size: 13px; color: gray; margin: 0; }
+    .menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: #333;
+      text-decoration: none;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .menu a:hover, .menu a.active {
+      background-color: #e8f1ff;
+      color: #0073e6;
+    }
+    .main {
+      margin-left: 260px;
+      padding: 30px 50px;
+    }
+    .search-bar {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+    }
+    .search-bar input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+    .tabs {
+      display: flex;
+      gap: 20px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 25px;
+    }
+    .tabs div {
+      padding: 10px 0;
+      font-weight: 500;
+      color: #777;
+      cursor: pointer;
+    }
+    .tabs div.active {
+      border-bottom: 3px solid #0073e6;
+      color: #0073e6;
+    }
+    .network { display: flex; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+    .person { text-align: center; width: 120px; }
+    .person img { width: 70px; height: 70px; border-radius: 50%; margin-bottom: 8px; }
+    .person h4 { margin: 0; font-size: 15px; }
+    .person p { margin: 0; color: gray; font-size: 13px; }
+    .section-title { font-weight: 600; margin: 25px 0 15px; }
+    .activity, .recommendation {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+    .activity img { width: 35px; height: 35px; border-radius: 50%; vertical-align: middle; margin-right: 10px; }
+    .activity span { font-weight: 600; }
+    .recommendation h4 { margin: 0; font-size: 16px; }
+    .recommendation p { font-size: 14px; color: gray; }
+    .recommendation button {
+      background-color: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .recommendation button:hover { background-color: #005fcc; }
+    .recommendation img { float: right; width: 80px; margin-top: -20px; }

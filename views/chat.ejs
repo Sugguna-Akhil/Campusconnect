@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Messages — <%= receiver ? receiver.name : 'Chats' %></title>
+  <link rel="stylesheet" href="/chat.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="me">
+          <img src="<%= currentUser.avatar || '/images/default-avatar.png' %>" class="me-avatar" />
+          <div class="me-info">
+            <div class="me-name"><%= currentUser.name %></div>
+            <div class="me-role">Student</div>
+          </div>
+          <button class="new-btn">New</button>
+        </div>
+        <div class="search-wrap">
+          <input id="searchInput" placeholder="Search messages..." />
+        </div>
+      </div>
+
+      <ul id="contacts" class="contacts">
+        <% contacts.forEach(c => { %>
+          <li class="contact-item<%= receiver && receiver._id.toString() === c._id.toString() ? ' active' : '' %>" data-id="<%= c._id %>">
+            <img src="<%= c.avatar || '/images/default-avatar.png' %>" class="contact-avatar" />
+            <div class="contact-meta">
+              <div class="contact-name"><%= c.name %></div>
+              <div class="contact-preview"><%= c.preview ? c.preview : '' %></div>
+            </div>
+            <div class="contact-time"><%= c.time ? c.time : '' %></div>
+          </li>
+        <% }) %>
+      </ul>
+    </aside>
+
+    <main class="chat-area">
+      <div class="chat-header">
+        <% if (receiver) { %>
+          <div class="chat-user">
+            <img src="<%= receiver.avatar || '/images/default-avatar.png' %>" class="chat-user-avatar" />
+            <div class="chat-user-info">
+              <div class="chat-user-name"><%= receiver.name %></div>
+              <div class="chat-user-sub">Product Designer at Innovate Inc.</div>
+            </div>
+          </div>
+        <% } else { %>
+          <div class="chat-user-empty">Select a conversation</div>
+        <% } %>
+        <div class="chat-actions">⋮</div>
+      </div>
+
+      <div id="messages" class="messages">
+        <% messages.forEach(msg => { %>
+          <% const isSent = msg.sender.toString() === currentUser._id.toString(); %>
+          <div class="message-row <%= isSent ? 'outgoing' : 'incoming' %>">
+            <% if (!isSent) { %>
+              <img src="<%= receiver.avatar || '/images/default-avatar.png' %>" class="msg-avatar" />
+            <% } else { %>
+              <div class="msg-spacer"></div>
+            <% } %>
+
+            <div class="bubble-wrap">
+              <div class="bubble <%= isSent ? 'bubble-sent' : 'bubble-recv' %>">
+                <div class="bubble-text"><%= msg.message %></div>
+                <div class="bubble-meta">
+                  <span class="time"><%= new Date(msg.timestamp).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}) %></span>
+                  <% if (isSent) { %>
+                    <svg class="tick" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                      <path fill="#ffffff" d="M20.285 6.708L9.75 17.243 3.714 11.207l1.414-1.414 4.622 4.622 9.507-9.507z"></path>
+                    </svg>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+
+            <% if (isSent) { %>
+              <img src="<%= currentUser.avatar || '/images/default-avatar.png' %>" class="msg-avatar" />
+            <% } else { %>
+              <div class="msg-spacer"></div>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+
+      <form id="composer" class="composer">
+        <input id="composerInput" autocomplete="off" placeholder="Type a message..." />
+        <div class="composer-actions">
+          <button type="button" id="attachBtn" class="icon-btn">📎</button>
+          <button type="submit" id="sendBtn" class="send-btn">Send</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const currentUserId = "<%= currentUser._id %>";
+    const composer = document.getElementById('composer');
+    const composerInput = document.getElementById('composerInput');
+    const messagesEl = document.getElementById('messages');
+    const contacts = document.getElementById('contacts');
+    const searchInput = document.getElementById('searchInput');
+
+    socket.emit('join', currentUserId);
+
+    contacts.addEventListener('click', e => {
+      const item = e.target.closest('.contact-item');
+      if (!item) return;
+      const id = item.dataset.id;
+      window.location.href = '/chat/' + id;
+    });
+
+    composer.addEventListener('submit', async e => {
+      e.preventDefault();
+      const text = composerInput.value.trim();
+      if (!text) return;
+      const receiverId = "<%= receiver ? receiver._id : '' %>";
+      if (!receiverId) return;
+      socket.emit('private message', { senderId: currentUserId, receiverId, message: text });
+      composerInput.value = '';
+    });
+
+    socket.on('private message', data => {
+      const isSent = data.fromId === currentUserId || data.from === "<%= currentUser.name %>";
+      const div = document.createElement('div');
+      div.className = 'message-row ' + (isSent ? 'outgoing' : 'incoming');
+      const avatarSrc = isSent ? '<%= currentUser.avatar || "/images/default-avatar.png" %>' : '<%= receiver ? (receiver.avatar || "/images/default-avatar.png") : "/images/default-avatar.png" %>';
+      div.innerHTML = `
+        ${!isSent ? '<img src="' + avatarSrc + '" class="msg-avatar" />' : '<div class="msg-spacer"></div>'}
+        <div class="bubble-wrap">
+          <div class="bubble ${isSent ? 'bubble-sent' : 'bubble-recv'}">
+            <div class="bubble-text">${(data.message || '').replace(/</g,'&lt;')}</div>
+            <div class="bubble-meta"><span class="time">${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</span>${isSent ? '<svg class="tick" viewBox="0 0 24 24" width="16" height="16"><path fill="#ffffff" d="M20.285 6.708L9.75 17.243 3.714 11.207l1.414-1.414 4.622 4.622 9.507-9.507z"></path></svg>' : ''}</div>
+          </div>
+        </div>
+        ${isSent ? '<img src="' + avatarSrc + '" class="msg-avatar" />' : '<div class="msg-spacer"></div>'}
+      `;
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    });
+
+    searchInput.addEventListener('input', e => {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.contact-item').forEach(item => {
+        const name = item.querySelector('.contact-name').textContent.toLowerCase();
+        item.style.display = name.includes(q) ? 'flex' : 'none';
+      });
+    });
+
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  </script>
+</body>
+</html>

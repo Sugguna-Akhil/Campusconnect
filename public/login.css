@@ -1,0 +1,117 @@
+*{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif
+    }
+    body 
+    {
+      background:#f8f8f8;
+      color:#333;
+    }
+    header 
+    {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      background:#fff;
+      box-shadow:0 2px 5px rgba(0,0,0,0.05);
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+    }
+    .logo 
+    {
+      font-weight:bold;
+      font-size:20px;
+      color:#007bff;
+    }
+    nav a 
+    {
+      margin-left:20px;
+      text-decoration:none;
+      color:#555;
+      font-size:14px;
+    }
+    nav a:hover 
+    {
+      color:#007bff;
+    }
+    .btn-nav 
+    {
+      padding:8px 16px;
+      background:#007bff;
+      color:#e6f3ff;
+      border-radius:5px;
+      font-size:14px;
+      text-decoration:none;
+    }
+    .login-container
+    {
+      background:#fff;
+      padding:40px 30px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      width:100%;
+      max-width:350px;
+      text-align:center;
+      margin:120px auto; 
+    }
+    .login-container h2
+    {
+      margin-bottom:20px;
+      color:#007bff;
+    }
+    .form-group
+    {
+      margin-bottom:15px;
+      text-align:left;
+    }
+    .form-group label
+    {
+      display:block;
+      margin-bottom:5px;
+      font-size:14px;
+      color:#333;
+    }
+    .form-group input
+    {
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      font-size:14px;
+    }
+    .btn
+    {
+      display:inline-block;
+      width:100%;
+      padding:10px;
+      border:none;
+      border-radius:20px;
+      background:#007bff;
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+    .btn:hover
+    {
+      background:#0056b3;
+    }
+    .extra-links
+    {
+      margin-top:15px;
+      font-size:14px;
+    }
+    .extra-links a
+    {
+      color:#007bff;
+      text-decoration:none;
+    }
+    .extra-links a:hover{
+      text-decoration:underline;
+    }

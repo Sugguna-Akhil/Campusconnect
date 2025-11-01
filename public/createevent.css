@@ -1,0 +1,157 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+}
+
+#head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  border-bottom: 2px solid #ddd;
+  background-color: #ffffff;
+}
+
+#title {
+  color: #3366ff;
+  font-weight: 700;
+  margin: 0;
+}
+
+#dash {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+#dash a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+#dash a:hover {
+  color: #3366ff;
+}
+
+#image1 {
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#image1:hover {
+  transform: scale(1.1);
+}
+
+#create-title {
+  padding-left: 150px;
+  padding-top: 50px;
+}
+
+#event-details {
+  margin-top: 40px;
+  margin-left: 150px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding-left: 30px;
+  width: 1000px;
+  padding-bottom: 30px;
+  background-color: #fff;
+}
+
+#input1 {
+  width: 800px;
+  height: 25px;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#dt {
+  display: flex;
+  gap: 200px;
+}
+
+#input2 {
+  height: 25px;
+  width: 250px;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#input3 {
+  height: 100px;
+  width: 800px;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  resize: none;
+}
+
+.upload-box {
+  border: 2px dashed #c4c4c4;
+  border-radius: 12px;
+  width: 850px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+  background-color: #fafafa;
+}
+
+.upload-box:hover {
+  border-color: #3366ff;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-box label {
+  color: #3366ff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.upload-box small {
+  color: #888;
+  margin-top: 4px;
+}
+
+.upload-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #999;
+}
+
+#submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px auto;
+  background-color: #3366ff;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit:hover {
+  background-color: #254eda;
+}

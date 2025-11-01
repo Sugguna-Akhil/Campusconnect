@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusConnect Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/event.css">
+</head>
+<body>
+  <header id="head">
+    <div id="camp">
+      <h1>CampusConnect Events</h1>
+    </div>
+    <div class="right-section">
+      <a href="/profile"><img src="profile.png" id="profile" alt="Profile" /></a>
+    </div>
+  </header>
+
+  <main id="main-container">
+    <aside id="filters">
+      <h3>Filters</h3>
+      <div id="filter">
+        <label><input type="checkbox"> Hackathon</label>
+        <label><input type="checkbox"> Academics</label>
+        <label><input type="checkbox"> Fests</label>
+        <label><input type="checkbox"> Workshop</label>
+        <label><input type="checkbox"> Sports</label>
+      </div>
+      <div id="date">
+        <h3>Date</h3>
+        <input type="date">
+      </div>
+      <div id="date">
+        <h3>Location</h3>
+        <input type="text" placeholder="eg: Hyderabad">
+      </div>
+      <button id="button">Apply Filters</button>
+    </aside>
+
+    <section class="events-section">
+      <div id="search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+        </svg>
+        <input type="text" placeholder="Search for events, workshops, fests...">
+      </div>
+
+      <div id="buttons">
+        <a href="#" class="button-link"><h3>All</h3></a>
+        <a href="#" class="button-link"><h3>Hackathons</h3></a>
+        <a href="#" class="button-link"><h3>Fests</h3></a>
+        <a href="#" class="button-link"><h3>Workshops</h3></a>
+        <a href="#" class="button-link"><h3>Sports</h3></a>
+        <a href="#" class="button-link"><h3>Academics</h3></a>
+      </div>
+
+      <div class="cards-container">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

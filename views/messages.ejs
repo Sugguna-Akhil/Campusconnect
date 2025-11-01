@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Chat</title>
+  <link rel = "stylesheet" href = "/messages.css">
+</head>
+<body>
+  <div id="chatBox">
+    <div id="messages"></div>
+    <form id="form">
+      <input id="receiver" placeholder="Receiver name..." required />
+      <input id="message" placeholder="Type your message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const form = document.getElementById("form");
+    const messagesDiv = document.getElementById("messages");
+
+    const sender = "<%= name %>"; // Pass from backend
+
+    socket.on("newMessage", (data) => {
+      if (data.sender === sender || data.receiver === sender) {
+        const div = document.createElement("div");
+        div.textContent = `${data.sender}: ${data.message}`;
+        messagesDiv.appendChild(div);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+    });
+
+    socket.on("errorMessage", (msg) => alert(msg));
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const receiver = document.getElementById("receiver").value;
+      const message = document.getElementById("message").value;
+      socket.emit("sendMessage", { sender, receiver, message });
+      document.getElementById("message").value = "";
+    });
+  </script>
+</body>
+</html>

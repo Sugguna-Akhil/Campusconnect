@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Dashboard</title>
+  <link rel="stylesheet" href="/maindashboard.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="profile">
+    <a href = "/profile/<%= detail.id %>">
+    <img src="/images/profile.png" alt="Profile">
+    <div>
+      <h3><%= detail.name %></h3>
+      <p><%= detail.college %> - <%= detail.year %></p>
+    </div>
+    </a>
+  </div>
+
+  <div class="menu">
+    <a href="/MainDashboard" class="active">🏠 Dashboard</a>
+    <a href="#">👥 My Network</a>
+    <a href="/chat/<%= detail._id %>">💬 Messages</a>
+    <a href = "/editprofile/<%= detail.id %>">✏️ Edit Profile</a>
+    <a href = "/events">📅 Events</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="search-bar">
+    <form action="/search" method="get">
+      <input type="text" name="name" placeholder="Search students..." required>
+    </form>
+  </div>
+
+  <div class="tabs">
+    <div class="active">For you</div>
+    <div>Following</div>
+    <div>Groups</div>
+  </div>
+  
+  <div class="section-title">Recommendations</div>
+  <% if (detail.recommendations && detail.recommendations.length > 0) { %>
+    <% detail.recommendations.forEach(rec => { %>
+      <div class="recommendation">
+        <img src="/images/recommendation.png" alt="">
+        <h4><%= rec.title %></h4>
+        <p><%= rec.desc %></p>
+        <button><%= rec.buttonText %></button>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <div class="recommendation">
+      No recommendations yet.
+    </div>
+  <% } %>
+</div>
+
+</body>
+</html>

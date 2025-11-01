@@ -1,7 +1,15 @@
 {
+  "name": "campusconnect",
+  "version": "1.0.0",
+  "description": "CampusConnect web app",
+  "main": "main1.js",
+  "scripts": {
+    "start": "node main1.js"
+  },
+  "author": "Sugguna Akhil",
+  "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.7",
-    "crypto": "^1.0.1",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
@@ -12,14 +20,5 @@
     "mysql2": "^3.15.1",
     "nodemailer": "^7.0.7",
     "socket.io": "^4.8.1"
-  },
-  "name": "campusconnect",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }

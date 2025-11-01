@@ -27,6 +27,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(session({ secret: process.env.SESSION_SECRET || "campusconnectsecret", resave: false, saveUninitialized: true }));
 
+app.get("/", (req, res) => {
+  res.redirect("/welcome");
+});
+
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -89,7 +93,7 @@ app.post("/forgotpassword", async (req, res) => {
     await transporter.sendMail({
       to: email,
       subject: "Campus Connect OTP",
-      html: `Your OTP for password reset is: <b>${otp}</b>. Valid for 5 minutes.`,
+      html: `Your OTP for password reset is: <b>${otp}</b>. Valid for 5 minutes.`
     });
     res.render("Forgotpassword", { stage: "otp", email, err: false });
   } catch (err) {
